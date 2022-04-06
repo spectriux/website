@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+
+  <body style="background-color: rgb(66, 66, 66);">
+    <div class="bar">
+      <h1><button onclick="signin()">Signin</button></h1>
+      <h1><button onclick="signup()">Signup</button></h1>
+    </div>
+    <div class="signUpframe" id="1">
+      <fieldset>
+        <legend>Register</legend>
+        <form class="formFD" action="./include/signup.inc.php" method="post" >
+
+          <label for="userName">UserName</label>
+
+           <input type="text" name="userName" id="userName">
+
+
+          ?>
+          <label for="emailAdress">Email Adress</label>
+          <input type="text" name="emailAdress" id="emailAdress">
+
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password">
+
+          <label for="RepeatPassword">Repeat Password</label>
+          <input type="password" name="RepeatPassword" id="RepeatPassword">
+
+          <button type="submit" name="submit">Register</button>
+      </fieldset>
+      </form>
+    </div>
+
+    <div class="signInframe" id="2">
+      <fieldset>
+        <legend>Login</legend>
+        <form class="formFD" action="include/login.inc.php" method="post" >
+
+          <label for="tokenID">TokenID</label>
+          <input type="text" name="tokenID" id="tokenID" minlength="4" required>
+
+          <label for="password">Password</label>
+          <input
+          type="password"
+          name="password"
+          id="password"
+          required minlength="6"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+
+          <button type="submit">Login</button>
+      </fieldset>
+      </form>
+    </div>
+
+    <script>
+      function signin()
+      {
+        document.getElementById("1").style.display = "none";
+        document.getElementById("2").style.display = "flex";
+      }
+      function signup()
+      {
+        document.getElementById("1").style.display = "flex";
+        document.getElementById("2").style.display = "none";
+      }
+    </script>
+
+
+  </body>
+</html>
